@@ -17,7 +17,7 @@ class CreateBookInvitationsTable extends Migration
             $table->id();
             $table->string('groom');
             $table->string('bride');
-            // $table->string('coupon_code')->nullable(true);
+            $table->string('message')->nullable(true);
             $table->string('password');
             $table->timestamps();
         });

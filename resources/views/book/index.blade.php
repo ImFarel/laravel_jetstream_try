@@ -6,29 +6,29 @@
 
   @if (session('status'))
   <div class="mb-4 font-medium text-sm text-green-600">
-    {{ session('status') }}
+    {!! session('status') !!}
   </div>
   @endif
 
-  <form method="POST">
+  <form wire:submit.prevent="store">
     @csrf
 
     <div>
       <x-jet-label for="groom" value="{{ __('Groom') }}" />
-      <x-jet-input id="groom" class="block mt-1 w-full" type="text" name="groom" :value="old('groom')" required
-        autofocus />
+      <x-jet-input wire:model="groom" id="groom" class="block mt-1 w-full" type="text" name="groom"
+        :value="old('groom')" required autofocus />
     </div>
 
     <div class="mt-4">
       <x-jet-label for="bride" value="{{ __('Bride') }}" />
-      <x-jet-input id="bride" class="block mt-1 w-full" type="text" name="bride" :value="old('bride')" required
-        autofocus />
+      <x-jet-input wire:model="bride" id="bride" class="block mt-1 w-full" type="text" name="bride"
+        :value="old('bride')" required autofocus />
     </div>
 
     <div class="mt-4">
       <x-jet-label for="password" value="{{ __('Password') }}" />
-      <x-jet-input id="password" class="block mt-1 w-full" type="password" name="password" required
-        autocomplete="current-password" />
+      <x-jet-input wire:model="password" id="password" class="block mt-1 w-full" type="password" name="password"
+        required autocomplete="current-password" />
     </div>
 
     <div class="flex items-center justify-end mt-4">
